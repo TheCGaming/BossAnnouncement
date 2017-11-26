@@ -111,12 +111,13 @@ class Main extends PluginBase implements Listener{
 		$text = str_replace("{y}", $player->getFloorY(), $text);
 		$text = str_replace("{z}", $player->getFloorZ(), $text);
 		$text = str_replace("{world}", (($levelname = $player->getLevel()->getName()) === false ? "" : $levelname), $text);
-		$text = str_replace("{level_players}", count($player->getLevel()->getPlayers()), $text);
-		$text = str_replace("{server_players}", count($player->getServer()->getOnlinePlayers()), $text);
-		$text = str_replace("{server_max_players}", $player->getServer()->getMaxPlayers(), $text);
+		$text = str_replace("{lplayers}", count($player->getLevel()->getPlayers()), $text);
+		$text = str_replace("{splayers}", count($player->getServer()->getOnlinePlayers()), $text);
+		$text = str_replace("{mplayers}", $player->getServer()->getMaxPlayers(), $text);
 		$text = str_replace("{hour}", date('H'), $text);
 		$text = str_replace("{minute}", date('i'), $text);
-		$text = str_replace("{second}", date('s'), $text);
+		$text = str_replace("{money}", $this->eco ?  $this->eco->myMoney($player->getName());
+                $text = str_replace("{second}", date('s'), $text);
 		// preg_match_all ("/(\{.*?\})/ig", $text, $brackets);
 
 		$text = str_replace("{BLACK}", "&0", $text);
